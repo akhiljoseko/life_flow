@@ -10,5 +10,7 @@ class AppTheme {
 }
 
 class AppColors {
+  static const white = Color(0xFFFFFFFF);
+  //
   static const lightThemeSeedColor = Color(0xFFD61107);
 }
