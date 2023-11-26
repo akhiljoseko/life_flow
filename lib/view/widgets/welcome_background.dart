@@ -33,13 +33,13 @@ class WelcomeBackground extends StatelessWidget {
             Positioned.fill(child: child),
             if (headingText != null)
               Positioned(
-                top: MediaQuery.sizeOf(context).height * .25,
+                top: MediaQuery.sizeOf(context).height * .15,
                 left: 0,
                 child: ScreenAroundPadding(
                   child: Text(
                     headingText!,
                     style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                          color: AppColors.white,
+                          color: AppColors.lightThemeSeedColor,
                           fontWeight: FontWeight.bold,
                         ),
                   ),

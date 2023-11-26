@@ -19,7 +19,7 @@ class WelcomeScreen extends StatelessWidget {
               Text(
                 "LifeFlow",
                 style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                      color: AppColors.white,
+                      color: AppColors.lightThemeSeedColor,
                       fontWeight: FontWeight.bold,
                     ),
               ),
@@ -27,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
               Text(
                 "Connecting donors with those in need, making blood donation easier than ever",
                 style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      color: AppColors.white,
+                      color: AppColors.lightThemeSeedColor,
                     ),
               ),
               const Vspace(24),
@@ -36,9 +36,11 @@ class WelcomeScreen extends StatelessWidget {
                   context.goNamed(RouteNames.login);
                 },
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.lightThemeSeedColor,
+                  foregroundColor: AppColors.white,
                   minimumSize: const Size(double.maxFinite, 50),
                 ),
-                child: const Text("Log In"),
+                child: const Text("LOG IN"),
               ),
               const Vspace(12),
               OutlinedButton(
@@ -48,7 +50,7 @@ class WelcomeScreen extends StatelessWidget {
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size(double.maxFinite, 50),
                 ),
-                child: const Text("Register"),
+                child: const Text("SIGN UP"),
               ),
             ],
           ),
