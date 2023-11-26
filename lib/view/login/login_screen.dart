@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
+import 'package:life_flow/view/widgets/wave_clipper.dart';
 import 'package:life_flow/view/widgets/welcome_background.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -13,7 +14,13 @@ class LoginScreen extends StatelessWidget {
       body: WelcomeBackground(
         headingText: "Welcome\nBack",
         child: ClipPath(
-          clipper: WaveClipper(),
+          clipper: WaveClipper(
+            startingPoint: 0.51,
+            firstControlPointDy: 0.55,
+            firstEndPointDy: 0.51,
+            secondControlPointDy: 0.45,
+            secondEndPointDy: 0.5,
+          ),
           child: Container(
             color: AppColors.white,
             child: Padding(
@@ -54,7 +61,7 @@ class LoginScreen extends StatelessWidget {
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                           minimumSize: const Size(double.maxFinite, 50)),
-                      child: const Text("Login"),
+                      child: const Text("LOG IN"),
                     ),
                     const Vspace(8),
                     const Row(
@@ -72,7 +79,7 @@ class LoginScreen extends StatelessWidget {
                       style: OutlinedButton.styleFrom(
                         minimumSize: const Size(double.maxFinite, 50),
                       ),
-                      child: const Text("Register"),
+                      child: const Text("SIGN UP"),
                     ),
                   ],
                 ),
@@ -82,34 +89,5 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class WaveClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.lineTo(0, size.height * 0.51);
-
-    var firstControlPoint = Offset(size.width / 4, size.height * .55);
-    var firstEndPoint = Offset(size.width / 2, size.height * 0.51);
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
-        firstEndPoint.dx, firstEndPoint.dy);
-
-    var secondControlPoint =
-        Offset(size.width - (size.width / 5.25), size.height * 0.45);
-    var secondEndPoint = Offset(size.width, size.height * 0.5);
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
-        secondEndPoint.dx, secondEndPoint.dy);
-
-    path.lineTo(size.width, size.height);
-    path.lineTo(0, size.height);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
-    return false;
   }
 }
