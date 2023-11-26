@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
+import 'package:life_flow/view/widgets/welcome_background.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -9,20 +10,8 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.maxFinite,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(AppImages.welcome_bg),
-            colorFilter: ColorFilter.mode(
-              Color(0xFFEF9390),
-              BlendMode.softLight,
-            ),
-          ),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+      body: WelcomeBackground(
+        child: ScreenAroundPadding(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
