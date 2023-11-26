@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:life_flow/app/app.dart';
+import 'package:life_flow/view/widgets/spacing.dart';
 
 class WelcomeBackground extends StatelessWidget {
-  const WelcomeBackground({super.key, required this.child});
+  const WelcomeBackground({
+    super.key,
+    required this.child,
+    this.headingText,
+  });
 
   final Widget child;
+  final String? headingText;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +28,25 @@ class WelcomeBackground extends StatelessWidget {
             ),
           ),
         ),
-        child: child,
+        child: Stack(
+          children: [
+            Positioned.fill(child: child),
+            if (headingText != null)
+              Positioned(
+                top: MediaQuery.sizeOf(context).height * .25,
+                left: 0,
+                child: ScreenAroundPadding(
+                  child: Text(
+                    headingText!,
+                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                          color: AppColors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }
