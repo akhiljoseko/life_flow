@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 
@@ -42,7 +43,9 @@ class WelcomeScreen extends StatelessWidget {
               ),
               const Vspace(24),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.goNamed(RouteNames.login);
+                },
                 style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.maxFinite, 50),
                 ),
@@ -50,7 +53,9 @@ class WelcomeScreen extends StatelessWidget {
               ),
               const Vspace(12),
               OutlinedButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.goNamed(RouteNames.register);
+                },
                 style: OutlinedButton.styleFrom(
                   minimumSize: const Size(double.maxFinite, 50),
                 ),
