@@ -25,3 +25,20 @@ class Vspace extends StatelessWidget {
     );
   }
 }
+
+class ScreenAroundPadding extends StatelessWidget {
+  const ScreenAroundPadding({
+    super.key,
+    required this.child,
+  });
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: child,
+    );
+  }
+}
