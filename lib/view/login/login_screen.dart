@@ -11,6 +11,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: WelcomeBackground(
+        headingText: "Welcome\nBack",
         child: ClipPath(
           clipper: WaveClipper(),
           child: Container(
@@ -33,6 +34,7 @@ class LoginScreen extends StatelessWidget {
                     const Vspace(12),
                     TextFormField(
                       textInputAction: TextInputAction.done,
+                      obscureText: true,
                       decoration: const InputDecoration(
                         label: Text(
                           "Password",
