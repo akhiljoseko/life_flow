@@ -3,12 +3,15 @@ import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/route_names.dart';
 import 'package:life_flow/core/core.dart';
 import 'package:life_flow/view/home/home_screen.dart';
+import 'package:life_flow/view/login/login_screen.dart';
+import 'package:life_flow/view/registeration/registration_screen.dart';
 import 'package:life_flow/view/welcome/welcome_screen.dart';
 
 class AppRouter {
   GoRouter router = GoRouter(
     redirect: (context, state) {
-      if (context.read<AuthenticationCubit>().state is! Authenticated) {
+      if (context.read<AuthenticationCubit>().state is! Authenticated &&
+          (!(state.fullPath?.contains("welcome") ?? false))) {
         return "/welcome";
       }
       return null;
@@ -24,7 +27,13 @@ class AppRouter {
           GoRoute(
             path: "login",
             name: RouteNames.login,
-            builder: (context, state) => const WelcomeScreen(),
+            builder: (context, state) => const LoginScreen(),
+          ),
+          //Login
+          GoRoute(
+            path: "register",
+            name: RouteNames.register,
+            builder: (context, state) => const RegistrationScreen(),
           ),
         ],
       ),
