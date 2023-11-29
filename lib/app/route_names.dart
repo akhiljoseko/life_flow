@@ -3,6 +3,7 @@ class RouteNames {
   static const login = 'login';
   static const register = 'register';
   static const verifyOtp = 'verify-otp';
+  static const userDetails = 'user-details';
 
   static const home = 'home';
 }

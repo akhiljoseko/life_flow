@@ -5,6 +5,7 @@ import 'package:life_flow/core/core.dart';
 import 'package:life_flow/view/home/home_screen.dart';
 import 'package:life_flow/view/login/login_screen.dart';
 import 'package:life_flow/view/registeration/registration_screen.dart';
+import 'package:life_flow/view/registeration/user_details_screen.dart';
 import 'package:life_flow/view/registeration/verify_otp_screen.dart';
 import 'package:life_flow/view/welcome/welcome_screen.dart';
 
@@ -13,7 +14,7 @@ class AppRouter {
     redirect: (context, state) {
       if (context.read<AuthenticationCubit>().state is! Authenticated &&
           (!(state.fullPath?.contains("welcome") ?? false))) {
-        return "/welcome/register/verify-otp";
+        return "/welcome";
       }
       return null;
     },
@@ -32,16 +33,22 @@ class AppRouter {
           ),
           //Login
           GoRoute(
-              path: "register",
-              name: RouteNames.register,
-              builder: (context, state) => const RegistrationScreen(),
-              routes: [
-                GoRoute(
-                  path: "verify-otp",
-                  name: RouteNames.verifyOtp,
-                  builder: (context, state) => const VerifyOtpScreen(),
-                )
-              ]),
+            path: "register",
+            name: RouteNames.register,
+            builder: (context, state) => const RegistrationScreen(),
+            routes: [
+              GoRoute(
+                path: "verify-otp",
+                name: RouteNames.verifyOtp,
+                builder: (context, state) => const VerifyOtpScreen(),
+              ),
+              GoRoute(
+                path: "user-details",
+                name: RouteNames.userDetails,
+                builder: (context, state) => const UserDetailsScreen(),
+              ),
+            ],
+          ),
         ],
       ),
 
