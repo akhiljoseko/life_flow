@@ -77,7 +77,9 @@ class RegistrationScreen extends StatelessWidget {
             ),
             const Vspace(8),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.goNamed(RouteNames.verifyOtp);
+              },
               style: ElevatedButton.styleFrom(
                   minimumSize: const Size(double.maxFinite, 50)),
               child: const Text("Send OTP"),
