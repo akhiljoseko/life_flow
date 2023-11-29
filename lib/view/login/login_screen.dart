@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
+import 'package:life_flow/view/widgets/question_button.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
-import 'package:life_flow/view/widgets/wave_clipper.dart';
-import 'package:life_flow/view/widgets/welcome_background.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -11,80 +11,58 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: WelcomeBackground(
-        headingText: "Welcome\nBack",
-        child: ClipPath(
-          clipper: WaveClipper(
-            startingPoint: 0.51,
-            firstControlPointDy: 0.55,
-            firstEndPointDy: 0.51,
-            secondControlPointDy: 0.45,
-            secondEndPointDy: 0.5,
-          ),
-          child: Container(
-            color: AppColors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: ScreenAroundPadding(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    TextFormField(
-                      textInputAction: TextInputAction.next,
-                      keyboardType: TextInputType.phone,
-                      decoration: const InputDecoration(
-                        label: Text(
-                          "Mobile Number",
-                        ),
-                      ),
-                    ),
-                    const Vspace(12),
-                    TextFormField(
-                      textInputAction: TextInputAction.done,
-                      obscureText: true,
-                      decoration: const InputDecoration(
-                        label: Text(
-                          "Password",
-                        ),
-                      ),
-                    ),
-                    const Vspace(12),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                        onPressed: () {},
-                        child: const Text("Forgot Password?"),
-                      ),
-                    ),
-                    const Vspace(12),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(double.maxFinite, 50)),
-                      child: const Text("LOG IN"),
-                    ),
-                    const Vspace(8),
-                    const Row(
-                      children: [
-                        Expanded(child: Divider()),
-                        Text("OR"),
-                        Expanded(child: Divider()),
-                      ],
-                    ),
-                    const Vspace(8),
-                    OutlinedButton(
-                      onPressed: () {
-                        context.goNamed(RouteNames.register);
-                      },
-                      style: OutlinedButton.styleFrom(
-                        minimumSize: const Size(double.maxFinite, 50),
-                      ),
-                      child: const Text("SIGN UP"),
-                    ),
-                  ],
+      body: SizedBox.expand(
+        child: ScreenAroundPadding(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                AppImages.blood_donation_illustration,
+                height: MediaQuery.sizeOf(context).height * .4,
+              ),
+              TextFormField(
+                textInputAction: TextInputAction.next,
+                keyboardType: TextInputType.phone,
+                decoration: const InputDecoration(
+                  label: Text(
+                    "Mobile Number",
+                  ),
                 ),
               ),
-            ),
+              const Vspace(12),
+              TextFormField(
+                textInputAction: TextInputAction.done,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  label: Text(
+                    "Password",
+                  ),
+                ),
+              ),
+              const Vspace(12),
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text("Forgot Password?"),
+                ),
+              ),
+              const Vspace(12),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    minimumSize: const Size(double.maxFinite, 50)),
+                child: const Text("LOG IN"),
+              ),
+              const Vspace(24),
+              QuestionButton(
+                question: "Don't have an account?  ",
+                buttonText: "Signup here",
+                onPressed: () {
+                  context.goNamed(RouteNames.register);
+                },
+              )
+            ],
           ),
         ),
       ),
