@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:life_flow/core/authentication/cubit/authentication_cubit.dart';
 import 'package:life_flow/view/widgets/inline_date_input_field.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 
@@ -144,7 +146,9 @@ class UserDetailsScreen extends StatelessWidget {
             ),
             const Vspace(24),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<AuthenticationCubit>().authenticated();
+              },
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.maxFinite, 50),
               ),

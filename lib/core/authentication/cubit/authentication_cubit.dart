@@ -5,4 +5,8 @@ part 'authentication_state.dart';
 
 class AuthenticationCubit extends Cubit<AuthenticationState> {
   AuthenticationCubit() : super(AuthenticationInitial());
+
+  void authenticated() {
+    emit(Authenticated());
+  }
 }
