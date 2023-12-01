@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/core/authentication/cubit/authentication_cubit.dart';
+import 'package:life_flow/view/widgets/password_text_form_field.dart';
 import 'package:life_flow/view/widgets/question_button.dart';
 import 'package:life_flow/view/widgets/screen_background.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
@@ -30,18 +31,13 @@ class LoginScreen extends StatelessWidget {
                   label: Text(
                     "Mobile Number",
                   ),
-                ),
-              ),
-              const Vspace(12),
-              TextFormField(
-                textInputAction: TextInputAction.done,
-                obscureText: true,
-                decoration: const InputDecoration(
-                  label: Text(
-                    "Password",
+                  prefixIcon: Icon(
+                    Icons.phone_outlined,
                   ),
                 ),
               ),
+              const Vspace(12),
+              const PasswordTextFormField(),
               const Vspace(12),
               Align(
                 alignment: Alignment.centerRight,

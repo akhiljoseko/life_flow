@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:life_flow/core/authentication/cubit/authentication_cubit.dart';
 import 'package:life_flow/view/widgets/inline_date_input_field.dart';
+import 'package:life_flow/view/widgets/screen_background.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 
 class UserDetailsScreen extends StatelessWidget {
@@ -11,150 +12,155 @@ class UserDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ScreenAroundPadding(
-        child: Column(
-          children: [
-            const Vspace(48),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Finish Your\nProfile",
-                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                textAlign: TextAlign.left,
+      body: ScreenBackground(
+        child: ScreenAroundPadding(
+          child: ListView(
+            children: [
+              const Vspace(48),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Finish Your\nProfile",
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                  textAlign: TextAlign.left,
+                ),
               ),
-            ),
-            TextFormField(
-              decoration: const InputDecoration(
-                label: Text("Name"),
-              ),
-            ),
-            const Vspace(12),
-            InlineDateInput(
-              initialDate: null,
-              onDateSelected: (d) {},
-              label: "Date of Birth",
-            ),
-            const Vspace(12),
-            Row(
-              children: [
-                Expanded(
-                  child: DropdownButtonFormField<String>(
-                    decoration: const InputDecoration(
-                      label: Text("Gender"),
-                    ),
-                    items: ["Male", "Female"]
-                        .map(
-                          (e) => DropdownMenuItem<String>(
-                            value: e,
-                            child: Text(e),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (g) {},
+              TextFormField(
+                decoration: const InputDecoration(
+                  label: Text("Name"),
+                  prefixIcon: Icon(
+                    Icons.person_outline_rounded,
                   ),
                 ),
-                const Hspace(12),
-                Expanded(
-                  child: DropdownButtonFormField<String>(
-                    decoration: const InputDecoration(
-                      label: Text("Blood Group"),
+              ),
+              const Vspace(12),
+              InlineDateInput(
+                initialDate: null,
+                onDateSelected: (d) {},
+                label: "Date of Birth",
+              ),
+              const Vspace(12),
+              Row(
+                children: [
+                  Expanded(
+                    child: DropdownButtonFormField<String>(
+                      decoration: const InputDecoration(
+                        label: Text("Gender"),
+                      ),
+                      items: ["Male", "Female"]
+                          .map(
+                            (e) => DropdownMenuItem<String>(
+                              value: e,
+                              child: Text(e),
+                            ),
+                          )
+                          .toList(),
+                      onChanged: (g) {},
                     ),
-                    items: [
-                      "A+",
-                      "A-",
-                      "B+",
-                      "B-",
-                      "AB+",
-                      "AB-",
-                      "O+",
-                      "O-",
-                    ]
-                        .map(
-                          (e) => DropdownMenuItem<String>(
-                            value: e,
-                            child: Text(e),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (g) {},
                   ),
+                  const Hspace(12),
+                  Expanded(
+                    child: DropdownButtonFormField<String>(
+                      decoration: const InputDecoration(
+                        label: Text("Blood Group"),
+                      ),
+                      items: [
+                        "A+",
+                        "A-",
+                        "B+",
+                        "B-",
+                        "AB+",
+                        "AB-",
+                        "O+",
+                        "O-",
+                      ]
+                          .map(
+                            (e) => DropdownMenuItem<String>(
+                              value: e,
+                              child: Text(e),
+                            ),
+                          )
+                          .toList(),
+                      onChanged: (g) {},
+                    ),
+                  ),
+                ],
+              ),
+              const Vspace(12),
+              TextFormField(
+                minLines: 3,
+                maxLines: 10,
+                decoration: const InputDecoration(
+                  label: Text("Address"),
                 ),
-              ],
-            ),
-            const Vspace(12),
-            TextFormField(
-              minLines: 3,
-              maxLines: 10,
-              decoration: const InputDecoration(
-                label: Text("Address"),
               ),
-            ),
-            const Vspace(12),
-            DropdownButtonFormField<String>(
-              decoration: const InputDecoration(
-                label: Text("District"),
+              const Vspace(12),
+              DropdownButtonFormField<String>(
+                decoration: const InputDecoration(
+                  label: Text("District"),
+                ),
+                items: [
+                  "Kasargod",
+                  "Kannur",
+                  "Kozhikode",
+                  "Malappuram",
+                  "Palakkad",
+                  "Thrissur",
+                  "Ernakulam",
+                  "Alappuzha",
+                  "Kottayam",
+                  "Idukki",
+                  "Pathanamthitta",
+                  "Thiruvanathapuram",
+                ]
+                    .map(
+                      (e) => DropdownMenuItem<String>(
+                        value: e,
+                        child: Text(e),
+                      ),
+                    )
+                    .toList(),
+                onChanged: (g) {},
               ),
-              items: [
-                "Kasargod",
-                "Kannur",
-                "Kozhikode",
-                "Malappuram",
-                "Palakkad",
-                "Thrissur",
-                "Ernakulam",
-                "Alappuzha",
-                "Kottayam",
-                "Idukki",
-                "Pathanamthitta",
-                "Thiruvanathapuram",
-              ]
-                  .map(
-                    (e) => DropdownMenuItem<String>(
-                      value: e,
-                      child: Text(e),
-                    ),
-                  )
-                  .toList(),
-              onChanged: (g) {},
-            ),
-            const Vspace(12),
-            DropdownButtonFormField<String>(
-              decoration: const InputDecoration(
-                label: Text("Taluk"),
+              const Vspace(12),
+              DropdownButtonFormField<String>(
+                decoration: const InputDecoration(
+                  label: Text("Taluk"),
+                ),
+                items: []
+                    .map(
+                      (e) => DropdownMenuItem<String>(
+                        value: e,
+                        child: Text(e),
+                      ),
+                    )
+                    .toList(),
+                onChanged: (g) {},
               ),
-              items: []
-                  .map(
-                    (e) => DropdownMenuItem<String>(
-                      value: e,
-                      child: Text(e),
-                    ),
-                  )
-                  .toList(),
-              onChanged: (g) {},
-            ),
-            const Vspace(12),
-            TextFormField(
-              inputFormatters: [
-                LengthLimitingTextInputFormatter(6),
-              ],
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                label: Text("PIN code"),
+              const Vspace(12),
+              TextFormField(
+                inputFormatters: [
+                  LengthLimitingTextInputFormatter(6),
+                ],
+                keyboardType: TextInputType.number,
+                decoration: const InputDecoration(
+                  label: Text("PIN code"),
+                ),
               ),
-            ),
-            const Vspace(24),
-            ElevatedButton(
-              onPressed: () {
-                context.read<AuthenticationCubit>().authenticated();
-              },
-              style: ElevatedButton.styleFrom(
-                minimumSize: const Size(double.maxFinite, 50),
+              const Vspace(24),
+              ElevatedButton(
+                onPressed: () {
+                  context.read<AuthenticationCubit>().authenticated();
+                },
+                style: ElevatedButton.styleFrom(
+                  minimumSize: const Size(double.maxFinite, 50),
+                ),
+                child: const Text("Finish"),
               ),
-              child: const Text("Finish"),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

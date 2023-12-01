@@ -40,7 +40,6 @@ class _InlineDateInputState extends State<InlineDateInput> {
       readOnly: true,
       validator: (value) => widget.validator?.call(_selectedDate),
       decoration: InputDecoration(
-        floatingLabelBehavior: FloatingLabelBehavior.never,
         label: Text(widget.label),
         suffixIcon: _selectedDate != null
             ? InkWell(

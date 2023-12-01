@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
+import 'package:life_flow/view/widgets/screen_background.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
@@ -12,7 +13,7 @@ class VerifyOtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox.expand(
+      body: ScreenBackground(
         child: ScreenAroundPadding(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

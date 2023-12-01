@@ -15,23 +15,26 @@ class QuestionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(
-        text: question,
-        style: Theme.of(context)
-            .textTheme
-            .bodyMedium
-            ?.copyWith(color: Colors.black),
-        children: [
-          TextSpan(
-            text: buttonText,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-            recognizer: TapGestureRecognizer()..onTap = onPressed,
-          )
-        ],
+    return Align(
+      alignment: Alignment.center,
+      child: RichText(
+        text: TextSpan(
+          text: question,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(color: Colors.black),
+          children: [
+            TextSpan(
+              text: buttonText,
+              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+              recognizer: TapGestureRecognizer()..onTap = onPressed,
+            )
+          ],
+        ),
       ),
     );
   }

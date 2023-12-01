@@ -17,7 +17,7 @@ class WelcomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Text(
-                "LifeFlow",
+                "Life Flow",
                 style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                       color: AppColors.lightThemeSeedColor,
                       fontWeight: FontWeight.bold,
@@ -48,8 +48,6 @@ class WelcomeScreen extends StatelessWidget {
                   context.goNamed(RouteNames.register);
                 },
                 style: ElevatedButton.styleFrom(
-                  // backgroundColor: AppColors.lightThemeSeedColor,
-                  // foregroundColor: AppColors.white,
                   minimumSize: const Size(double.maxFinite, 50),
                 ),
                 child: const Text("SIGN UP"),

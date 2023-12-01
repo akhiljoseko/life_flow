@@ -6,6 +6,14 @@ class AppTheme {
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.lightThemeSeedColor,
     ),
+    inputDecorationTheme: const InputDecorationTheme(
+      border: UnderlineInputBorder(),
+      focusedBorder: UnderlineInputBorder(),
+      enabledBorder: UnderlineInputBorder(),
+      iconColor: AppColors.lightThemeSeedColor,
+      prefixIconColor: AppColors.lightThemeSeedColor,
+      suffixIconColor: AppColors.lightThemeSeedColor,
+    ),
   );
 }
 
