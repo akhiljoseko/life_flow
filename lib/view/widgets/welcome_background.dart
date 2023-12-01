@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 
@@ -14,39 +15,51 @@ class WelcomeBackground extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        width: double.maxFinite,
-        height: MediaQuery.sizeOf(context).height,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(AppImages.welcome_bg),
-            colorFilter: ColorFilter.mode(
-              Color(0xFFEF9390),
-              BlendMode.softLight,
+    return SizedBox(
+      width: double.maxFinite,
+      height: MediaQuery.sizeOf(context).height,
+      child: Stack(
+        children: [
+          Positioned.fill(
+            child: SvgPicture.asset(AppImages.bg_gray_elements),
+          ),
+          Positioned(
+            left: -10,
+            bottom: 0,
+            child: Image.asset(
+              AppImages.corner_red_element,
+              height: 100,
+              width: 100,
             ),
           ),
-        ),
-        child: Stack(
-          children: [
-            Positioned.fill(child: child),
-            if (headingText != null)
-              Positioned(
-                top: MediaQuery.sizeOf(context).height * .15,
-                left: 0,
-                child: ScreenAroundPadding(
-                  child: Text(
-                    headingText!,
-                    style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                          color: AppColors.lightThemeSeedColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
+          Positioned(
+            right: -10,
+            top: 0,
+            child: RotatedBox(
+              quarterTurns: 2,
+              child: Image.asset(
+                AppImages.corner_red_element,
+                height: 100,
+                width: 100,
+              ),
+            ),
+          ),
+          Positioned.fill(child: child),
+          if (headingText != null)
+            Positioned(
+              top: MediaQuery.sizeOf(context).height * .15,
+              left: 0,
+              child: ScreenAroundPadding(
+                child: Text(
+                  headingText!,
+                  style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                        color: AppColors.lightThemeSeedColor,
+                        fontWeight: FontWeight.bold,
+                      ),
                 ),
               ),
-          ],
-        ),
+            ),
+        ],
       ),
     );
   }

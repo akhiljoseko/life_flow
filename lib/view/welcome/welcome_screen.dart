@@ -43,15 +43,18 @@ class WelcomeScreen extends StatelessWidget {
                 child: const Text("LOG IN"),
               ),
               const Vspace(12),
-              OutlinedButton(
+              ElevatedButton(
                 onPressed: () {
                   context.goNamed(RouteNames.register);
                 },
-                style: OutlinedButton.styleFrom(
+                style: ElevatedButton.styleFrom(
+                  // backgroundColor: AppColors.lightThemeSeedColor,
+                  // foregroundColor: AppColors.white,
                   minimumSize: const Size(double.maxFinite, 50),
                 ),
                 child: const Text("SIGN UP"),
               ),
+              const Vspace(50),
             ],
           ),
         ),
