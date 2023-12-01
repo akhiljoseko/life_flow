@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
@@ -16,6 +17,15 @@ class WelcomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              Align(
+                alignment: Alignment.center,
+                child: SvgPicture.asset(
+                  AppImages.app_logo,
+                  width: 250,
+                  height: 250,
+                ),
+              ),
+              const Vspace(100),
               Text(
                 "Life Flow",
                 style: Theme.of(context).textTheme.headlineLarge?.copyWith(
@@ -52,7 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 child: const Text("SIGN UP"),
               ),
-              const Vspace(50),
+              const Vspace(70),
             ],
           ),
         ),
