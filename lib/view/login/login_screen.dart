@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/core/authentication/cubit/authentication_cubit.dart';
 import 'package:life_flow/view/widgets/question_button.dart';
+import 'package:life_flow/view/widgets/screen_background.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -13,7 +14,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox.expand(
+      body: ScreenBackground(
         child: ScreenAroundPadding(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
