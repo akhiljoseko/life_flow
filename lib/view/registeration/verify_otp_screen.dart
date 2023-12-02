@@ -36,7 +36,7 @@ class VerifyOtpScreen extends StatelessWidget {
                 textFieldAlignment: MainAxisAlignment.spaceAround,
                 fieldStyle: FieldStyle.box,
                 onCompleted: (pin) {
-                  print("Completed: $pin");
+                  //TODO: Handle pin
                 },
               ),
               const Vspace(12),
