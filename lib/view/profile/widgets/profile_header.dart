@@ -34,8 +34,8 @@ class ProfileHeader extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: width * .07,
-              top: height * .55,
+              right: width * .02,
+              top: height * .58,
               child: const CircleAvatar(
                 radius: 40,
                 child: Text("A"),
