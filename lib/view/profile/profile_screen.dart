@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:life_flow/app/app.dart';
-import 'package:life_flow/view/widgets/lf_app_bar.dart';
+import 'package:life_flow/view/profile/widgets/slidable_button.dart';
 import 'package:life_flow/view/widgets/screen_background.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 
@@ -21,6 +20,10 @@ class ProfileScreen extends StatelessWidget {
               Vspace(18),
               ScreenAroundPadding(
                 child: ProfileSummary(),
+              ),
+              Vspace(18),
+              ScreenAroundPadding(
+                child: SlidableButton(),
               ),
             ],
           ),
