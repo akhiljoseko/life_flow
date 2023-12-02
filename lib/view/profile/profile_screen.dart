@@ -5,7 +5,7 @@ import 'package:life_flow/view/widgets/spacing.dart';
 
 import 'widgets/last_donation_summary_card.dart';
 import 'widgets/profile_header.dart';
-import 'widgets/profile_summary.dart';
+import 'widgets/profile_summary_card.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -20,7 +20,7 @@ class ProfileScreen extends StatelessWidget {
               ProfileHeader(),
               Vspace(18),
               ScreenAroundPadding(
-                child: ProfileSummary(),
+                child: ProfileSummaryCard(),
               ),
               Vspace(18),
               ScreenAroundPadding(

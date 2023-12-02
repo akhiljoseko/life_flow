@@ -4,8 +4,8 @@ import 'package:life_flow/app/app_icons.dart';
 import 'package:life_flow/app/app_theme.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 
-class ProfileSummary extends StatelessWidget {
-  const ProfileSummary({
+class ProfileSummaryCard extends StatelessWidget {
+  const ProfileSummaryCard({
     super.key,
   });
 
