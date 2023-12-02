@@ -21,4 +21,5 @@ class AppColors {
   static const white = Color(0xFFFFFFFF);
   //
   static const lightThemeSeedColor = Color(0xFFD61107);
+  static const lightThemebuttonGreen = Color(0xFF2E9C1C);
 }
