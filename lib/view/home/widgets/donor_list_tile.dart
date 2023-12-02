@@ -4,71 +4,143 @@ import 'package:life_flow/app/app_icons.dart';
 import 'package:life_flow/app/app_theme.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 
-class DonorListTile extends StatelessWidget {
+class DonorListTile extends StatefulWidget {
   const DonorListTile({super.key});
 
   @override
+  State<DonorListTile> createState() => _DonorListTileState();
+}
+
+class _DonorListTileState extends State<DonorListTile> {
+  bool isExpanded = false;
+
+  @override
   Widget build(BuildContext context) {
-    return Padding(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 270),
+      height: isExpanded ? 150 : 90,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Card(
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-              const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    radius: 25,
-                    child: Text("A"),
-                  ),
-                  // Vspace(5),
-                  // Text("M/25y")
-                ],
-              ),
-              const Hspace(12),
-              Expanded(
-                child: Align(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Text("Allwin Anto"),
-                      const Vspace(5),
-                      Row(
-                        children: [
-                          SvgPicture.asset(AppIcons.location_outlined),
-                          const Hspace(5),
-                          const Text("Kechery"),
-                        ],
+        child: InkWell(
+          onTap: _cardExpansionHandler,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: Stack(
+                            alignment: Alignment.bottomRight,
+                            children: [
+                              const Positioned.fill(
+                                child: CircleAvatar(
+                                  radius: 25,
+                                  child: Text("AA"),
+                                ),
+                              ),
+                              CircleAvatar(
+                                backgroundColor: AppColors.lightThemeSeedColor,
+                                radius: 11,
+                                child: Text(
+                                  "O+",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .labelMedium
+                                      ?.copyWith(
+                                        color: AppColors.white,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const Hspace(12),
+                    Expanded(
+                      child: Align(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Text("Allwin Anto"),
+                            const Vspace(5),
+                            Row(
+                              children: [
+                                SvgPicture.asset(AppIcons.location_outlined),
+                                const Hspace(5),
+                                const Text("Kechery"),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              CircleAvatar(
-                backgroundColor: AppColors.lightThemeSeedColor,
-                radius: 15,
-                child: Text(
-                  "A+",
-                  style: Theme.of(context).textTheme.labelMedium?.copyWith(
-                        color: AppColors.white,
-                        fontWeight: FontWeight.bold,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 3),
+                      decoration: const BoxDecoration(
+                        color: AppColors.lightThemebuttonGreen,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12),
+                        ),
                       ),
+                      child: Text(
+                        "Inactive",
+                        style: Theme.of(context)
+                            .textTheme
+                            .labelLarge
+                            ?.copyWith(color: AppColors.white),
+                      ),
+                    )
+                  ],
                 ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.phone,
-                ),
-              )
-            ],
+                if (isExpanded) ...[
+                  const Vspace(16),
+                  Flexible(
+                    flex: 2,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            child: const Text(
+                              "Message",
+                            ),
+                          ),
+                        ),
+                        const Hspace(12),
+                        Expanded(
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: const Text(
+                              "Call",
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ]
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+
+  void _cardExpansionHandler() {
+    setState(() {
+      isExpanded = !isExpanded;
+    });
   }
 }
