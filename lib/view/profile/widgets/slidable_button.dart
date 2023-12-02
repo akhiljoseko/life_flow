@@ -34,7 +34,7 @@ class _SlidableButtonState extends State<SlidableButton> {
         ),
         onChanged: _onChangeHandler,
         child: Align(
-          alignment: isActive ? Alignment.center : Alignment.center,
+          alignment: isActive ? Alignment.centerLeft : Alignment.centerRight,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30),
             child: Text(
