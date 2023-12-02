@@ -14,6 +14,16 @@ class AppTheme {
       prefixIconColor: AppColors.lightThemeSeedColor,
       suffixIconColor: AppColors.lightThemeSeedColor,
     ),
+    cardTheme: const CardTheme(
+      elevation: 5,
+      surfaceTintColor: AppColors.white,
+      color: AppColors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(12),
+        ),
+      ),
+    ),
   );
 }
 
