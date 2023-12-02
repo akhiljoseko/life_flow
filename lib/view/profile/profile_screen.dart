@@ -3,6 +3,7 @@ import 'package:life_flow/view/profile/widgets/slidable_button.dart';
 import 'package:life_flow/view/widgets/screen_background.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
 
+import 'widgets/last_donation_summary_card.dart';
 import 'widgets/profile_header.dart';
 import 'widgets/profile_summary.dart';
 
@@ -25,6 +26,10 @@ class ProfileScreen extends StatelessWidget {
               ScreenAroundPadding(
                 child: SlidableButton(),
               ),
+              Vspace(18),
+              ScreenAroundPadding(
+                child: LastDonationSummaryCard(),
+              )
             ],
           ),
         ),
