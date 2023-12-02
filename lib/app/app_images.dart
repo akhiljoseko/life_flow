@@ -10,6 +10,8 @@ class AppImages {
   static const profile_bg = "${_location}profile_bg.png";
   static const blood_donation_illustration =
       "${_location}blood_donation_illustration.svg";
+  static const blood_donation_illustration_png =
+      "${_location}blood_donation_illustration.png";
   static const verify_otp_illustration =
       "${_location}verify_otp_illustration.svg";
 }
