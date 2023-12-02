@@ -77,6 +77,23 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              const Vspace(16),
+              Card(
+                color: Theme.of(context).colorScheme.errorContainer,
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                  child: Column(
+                    children: [
+                      SettingsListTile(
+                        title: "Delete My Account",
+                        icon: Icons.delete_outline_rounded,
+                        titleColor: Theme.of(context).colorScheme.error,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               const Align(
                 alignment: Alignment.center,
                 child: Text("App Version 0.1.0"),

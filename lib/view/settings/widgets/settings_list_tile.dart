@@ -7,10 +7,13 @@ class SettingsListTile extends StatelessWidget {
     required this.title,
     required this.icon,
     this.onSwitchToggled,
+    this.titleColor,
   });
   final String title;
   final IconData icon;
   final ValueChanged<bool>? onSwitchToggled;
+
+  final Color? titleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +32,9 @@ class SettingsListTile extends StatelessWidget {
                 const Hspace(12),
                 Text(
                   title,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: titleColor,
+                      ),
                 ),
                 const Spacer(),
                 if (onSwitchToggled != null)
