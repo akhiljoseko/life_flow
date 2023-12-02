@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
@@ -19,7 +18,7 @@ class WelcomeScreen extends StatelessWidget {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: SvgPicture.asset(
+                child: Image.asset(
                   AppImages.app_logo,
                   width: 250,
                   height: 250,
