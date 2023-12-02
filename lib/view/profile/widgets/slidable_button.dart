@@ -10,15 +10,24 @@ class SlidableButton extends StatefulWidget {
 }
 
 class _SlidableButtonState extends State<SlidableButton> {
-  String buttonText = "Swipe >";
-  String buttonDescription = "Now Inavtive";
-  bool isActive = false;
+  @override
+  void initState() {
+    super.initState();
+    _setSliderPosition();
+  }
+
+  late String buttonText;
+  late String buttonDescription;
+  late bool isActive = false;
   @override
   Widget build(BuildContext context) {
     return Card(
       shape: const StadiumBorder(),
       elevation: 5,
       child: HorizontalSlidableButton(
+        initialPosition: isActive
+            ? SlidableButtonPosition.end
+            : SlidableButtonPosition.start,
         height: 50,
         width: double.maxFinite,
         buttonWidth: 100.0,
@@ -53,5 +62,16 @@ class _SlidableButtonState extends State<SlidableButton> {
     setState(() {
       isActive = value == SlidableButtonPosition.end;
     });
+  }
+
+  void _setSliderPosition() {
+    isActive = true;
+    if (isActive) {
+      buttonText = "< Swipe";
+      buttonDescription = "Now avtive";
+    } else {
+      buttonText = "Swipe >";
+      buttonDescription = "Now Inavtive";
+    }
   }
 }
