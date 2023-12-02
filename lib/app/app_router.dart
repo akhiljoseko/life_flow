@@ -9,8 +9,8 @@ import 'package:life_flow/view/profile/profile_screen.dart';
 import 'package:life_flow/view/registeration/registration_screen.dart';
 import 'package:life_flow/view/registeration/user_details_screen.dart';
 import 'package:life_flow/view/registeration/verify_otp_screen.dart';
+import 'package:life_flow/view/settings/settings_screen.dart';
 import 'package:life_flow/view/welcome/welcome_screen.dart';
-import 'package:life_flow/view/widgets/upcoming_screen.dart';
 
 class AppRouter {
   // static final _rootNavigatorKey =
@@ -27,7 +27,7 @@ class AppRouter {
     redirect: (context, state) {
       if (context.read<AuthenticationCubit>().state is! Authenticated &&
           (!(state.fullPath?.contains("welcome") ?? false))) {
-        return "/profile";
+        return "/welcome";
       }
       return null;
     },
@@ -105,7 +105,7 @@ class AppRouter {
                 path: "/settings",
                 name: RouteNames.settings,
                 pageBuilder: (context, state) => const NoTransitionPage(
-                  child: UpcomingScreen(),
+                  child: SettingsScreen(),
                 ),
               ),
             ],
