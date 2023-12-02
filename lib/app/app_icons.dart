@@ -9,4 +9,5 @@ class AppIcons {
 
   static const half_filled_heart = "${_location}half_filled_heart.svg";
   static const blood_drop = "${_location}blood_drop.svg";
+  static const trophy_filled = "${_location}trophy_filled.svg";
 }

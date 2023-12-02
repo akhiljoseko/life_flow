@@ -31,7 +31,7 @@ class ProfileSummaryCard extends StatelessWidget {
             _SummaryItem(
               title: "Reward Points",
               value: "120",
-              icon: AppIcons.blood_drop,
+              icon: AppIcons.trophy_filled,
             ),
           ],
         ),
@@ -54,7 +54,11 @@ class _SummaryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset(icon),
+        SvgPicture.asset(
+          icon,
+          width: 25,
+          height: 25,
+        ),
         const Vspace(3),
         Text(
           value,

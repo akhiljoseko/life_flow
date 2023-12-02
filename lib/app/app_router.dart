@@ -27,7 +27,7 @@ class AppRouter {
     redirect: (context, state) {
       if (context.read<AuthenticationCubit>().state is! Authenticated &&
           (!(state.fullPath?.contains("welcome") ?? false))) {
-        return "/welcome";
+        return "/profile";
       }
       return null;
     },
