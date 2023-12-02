@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/view/widgets/password_text_form_field.dart';
@@ -17,7 +16,7 @@ class RegistrationScreen extends StatelessWidget {
         child: ScreenAroundPadding(
           child: ListView(
             children: [
-              SvgPicture.asset(
+              Image.asset(
                 AppImages.blood_donation_illustration,
                 height: MediaQuery.sizeOf(context).height * .3,
               ),
