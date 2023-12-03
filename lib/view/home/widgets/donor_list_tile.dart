@@ -3,9 +3,19 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:life_flow/app/app_icons.dart';
 import 'package:life_flow/app/app_theme.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
+import 'package:life_flow/view/widgets/user_circle_avatar.dart';
 
 class DonorListTile extends StatefulWidget {
-  const DonorListTile({super.key});
+  const DonorListTile({
+    super.key,
+    required this.name,
+    required this.isActive,
+    required this.bloodGroup,
+  });
+
+  final String name;
+  final String bloodGroup;
+  final bool isActive;
 
   @override
   State<DonorListTile> createState() => _DonorListTileState();
@@ -39,17 +49,17 @@ class _DonorListTileState extends State<DonorListTile> {
                           child: Stack(
                             alignment: Alignment.bottomRight,
                             children: [
-                              const Positioned.fill(
-                                child: CircleAvatar(
+                              Positioned.fill(
+                                child: UserCircleAvatar(
+                                  name: widget.name,
                                   radius: 25,
-                                  child: Text("AA"),
                                 ),
                               ),
                               CircleAvatar(
                                 backgroundColor: AppColors.lightThemeSeedColor,
                                 radius: 11,
                                 child: Text(
-                                  "O+",
+                                  widget.bloodGroup,
                                   style: Theme.of(context)
                                       .textTheme
                                       .labelMedium
@@ -71,13 +81,13 @@ class _DonorListTileState extends State<DonorListTile> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text("Allwin Anto"),
+                            Text(widget.name),
                             const Vspace(5),
                             Row(
                               children: [
                                 SvgPicture.asset(AppIcons.location_outlined),
                                 const Hspace(5),
-                                const Text("Kechery"),
+                                const Text("Thrissur"),
                               ],
                             ),
                           ],
@@ -87,14 +97,16 @@ class _DonorListTileState extends State<DonorListTile> {
                     Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 8, vertical: 3),
-                      decoration: const BoxDecoration(
-                        color: AppColors.lightThemebuttonGreen,
-                        borderRadius: BorderRadius.all(
+                      decoration: BoxDecoration(
+                        color: widget.isActive
+                            ? AppColors.lightThemebuttonGreen
+                            : Colors.grey[400],
+                        borderRadius: const BorderRadius.all(
                           Radius.circular(12),
                         ),
                       ),
                       child: Text(
-                        "Inactive",
+                        widget.isActive ? "Active" : "Inactive",
                         style: Theme.of(context)
                             .textTheme
                             .labelLarge

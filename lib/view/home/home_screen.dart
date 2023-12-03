@@ -53,9 +53,17 @@ class HomeScreen extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: 10,
+                itemCount: users.length,
                 itemBuilder: (context, index) {
-                  return const DonorListTile();
+                  return DonorListTile(
+                    name: users[index],
+                    isActive: index % 2 == 0,
+                    bloodGroup: index % 3 == 0
+                        ? "O+"
+                        : index % 2 == 0
+                            ? "A+"
+                            : "B+",
+                  );
                 },
               ),
             ),
@@ -65,3 +73,13 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+final users = [
+  "Jinson T V",
+  "Sijo",
+  "Alfin",
+  "Jilna",
+  "Gloria",
+  "Robert",
+  "Akhil Jose"
+];
