@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
+import 'package:life_flow/view/widgets/user_circle_avatar.dart';
 
 class HomeScreenHeader extends StatelessWidget {
   const HomeScreenHeader({
@@ -11,9 +12,9 @@ class HomeScreenHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const CircleAvatar(
+        const UserCircleAvatar(
+          name: "Allwin Anto",
           radius: 23,
-          child: Text("A"),
         ),
         const Hspace(12),
         Column(
@@ -27,7 +28,7 @@ class HomeScreenHeader extends StatelessWidget {
                   ?.copyWith(color: AppColors.white),
             ),
             Text(
-              "Kechery",
+              "Thrissur",
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium

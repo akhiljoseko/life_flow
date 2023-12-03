@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:life_flow/app/app.dart';
 import 'package:life_flow/view/widgets/lf_app_bar.dart';
 import 'package:life_flow/view/widgets/spacing.dart';
+import 'package:life_flow/view/widgets/user_circle_avatar.dart';
 
 class ProfileHeader extends StatelessWidget {
   const ProfileHeader({
@@ -36,9 +37,9 @@ class ProfileHeader extends StatelessWidget {
             Positioned(
               right: width * .02,
               top: height * .58,
-              child: const CircleAvatar(
-                radius: 40,
-                child: Text("A"),
+              child: const UserCircleAvatar(
+                name: "Allwin Anto",
+                radius: 38,
               ),
             ),
             Positioned(
