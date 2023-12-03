@@ -4,6 +4,9 @@ class AppImages {
   static const _location = "assets/images/";
 
   static const app_logo = "${_location}app_logo.png";
+  static const jy_logo = "${_location}jy_logo.png";
+  static const nallayalkaran_logo = "${_location}nallayalkaran_logo.png";
+  //
   static const bg_gray_elements = "${_location}bg_gray_elements.svg";
   static const corner_red_element = "${_location}bottom_corner_red_element.jpg";
   static const welcome_bg = "${_location}welcome_bg.jpg";
